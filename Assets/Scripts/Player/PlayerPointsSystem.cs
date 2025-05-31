@@ -53,6 +53,6 @@ public class PlayerPointsSystem : MonoBehaviour
         playerLevel += 1;
         nextXPTarget += LevelThresholdAdditive;
         playerXP = 0;
-        // add another script which controlls player scaling
+        gameObject.GetComponent<SmoothScalingSystem>().SmoothAddValueToScale(10f);
     }
 }

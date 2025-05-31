@@ -12,12 +12,6 @@ public class MovementController : MonoBehaviour
     [SerializeField] bool scalesWithScale;
     [SerializeField] Rigidbody rigidbody1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

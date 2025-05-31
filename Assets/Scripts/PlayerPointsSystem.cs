@@ -8,17 +8,19 @@ public class PlayerPointsSystem : MonoBehaviour
     //Script only variables
 
     float playerPoints;
+    float playerXP;
     int playerLevel = 1;
+    float nextXPTarget;
 
     //Unity Serialized variables
 
     [SerializeField] float LevelThreshold;
-    [SerializeField] float LevelThresholdMultiplier;
+    [SerializeField] float LevelThresholdAdditive;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        nextXPTarget = LevelThreshold;
     }
 
     // Update is called once per frame
@@ -30,22 +32,25 @@ public class PlayerPointsSystem : MonoBehaviour
     public void AddPoints(float points)
     {
         playerPoints += points;
-        print("DEBUG: Detection Stage 3: Points Added:" + points);
+        playerXP += points;
+        //print("DEBUG: Detection Stage 3: Points Added:" + points);
     }
 
     void CheckLevel()
     {
-        if (playerPoints >= LevelThreshold * (LevelThresholdMultiplier * playerLevel))
+        if (playerPoints >= nextXPTarget)
         {
-            print("DEBUG Original XP Target:" + LevelThreshold * (LevelThresholdMultiplier * playerLevel) + " New XP Target:" + LevelThreshold * (LevelThresholdMultiplier * playerLevel + 1));
             PerformLevelUp();
-            print("DEBUG: Level Up Performed");
+            //print("DEBUG: Level Up Performed");
         }
     }
 
     void PerformLevelUp()
     {
-        playerLevel++;
+        playerXP = 0;
+        playerLevel += 1;
+        nextXPTarget += LevelThresholdAdditive;
+        print(nextXPTarget + " " + playerXP);
         // add another script which controlls player scaling
     }
 }

@@ -7,6 +7,6 @@ public class ObjectDetectionSystem : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.GetComponent<ObjectPointsScript>().DetectionBoxActivated();
-        print("DEBUG: Detection Stage 1");
+        //print("DEBUG: Detection Stage 1");
     }
 }

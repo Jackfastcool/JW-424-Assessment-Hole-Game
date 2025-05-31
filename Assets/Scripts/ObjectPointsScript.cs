@@ -18,6 +18,6 @@ public class ObjectPointsScript : MonoBehaviour
     public void DetectionBoxActivated()
     {
         holeInFloorGO.GetComponent<PlayerPointsSystem>().AddPoints(points);
-        print("DEBUG: Detection Stage 2");
+        //print("DEBUG: Detection Stage 2");
     }
 }

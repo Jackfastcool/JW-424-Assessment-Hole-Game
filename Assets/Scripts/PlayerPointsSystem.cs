@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class PlayerPointsSystem : MonoBehaviour
@@ -27,8 +28,10 @@ public class PlayerPointsSystem : MonoBehaviour
     void Update()
     {
         CheckLevel();
+        GameObject.Find("current xp").GetComponent<UITextSystem>().SetValue(playerXP.ToString());
+        GameObject.Find("xp to level").GetComponent<UITextSystem>().SetValue((nextXPTarget - playerXP).ToString());
     }
-
+        
     public void AddPoints(float points)
     {
         playerPoints += points;
@@ -38,7 +41,7 @@ public class PlayerPointsSystem : MonoBehaviour
 
     void CheckLevel()
     {
-        if (playerPoints >= nextXPTarget)
+        if (playerXP >= nextXPTarget)
         {
             PerformLevelUp();
             //print("DEBUG: Level Up Performed");
@@ -47,10 +50,9 @@ public class PlayerPointsSystem : MonoBehaviour
 
     void PerformLevelUp()
     {
-        playerXP = 0;
         playerLevel += 1;
         nextXPTarget += LevelThresholdAdditive;
-        print(nextXPTarget + " " + playerXP);
+        playerXP = 0;
         // add another script which controlls player scaling
     }
 }

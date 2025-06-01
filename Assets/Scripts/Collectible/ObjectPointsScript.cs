@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ObjectPointsScript : MonoBehaviour
 {
-
+    // Unity serialized variables
     [SerializeField] float points;
 
+    // Script only variables
     GameObject holeInFloorGO;
 
-    // Start is called before the first frame update
     void Awake()
     {
         holeInFloorGO = GameObject.Find("Hole in floor main object");
@@ -17,6 +17,11 @@ public class ObjectPointsScript : MonoBehaviour
 
     public void DetectionBoxActivated()
     {
-        holeInFloorGO.GetComponent<PlayerPointsSystem>().AddPoints(points);
+        holeInFloorGO.GetComponent<PlayerPointsSystem>().AddPoints(Mathf.RoundToInt(points));
+    }
+
+    public void SetPointsWorth(float newPoints)
+    {
+        points = newPoints;
     }
 }

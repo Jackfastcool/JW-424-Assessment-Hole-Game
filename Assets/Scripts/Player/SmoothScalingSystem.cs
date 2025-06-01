@@ -10,9 +10,6 @@ public class SmoothScalingSystem : MonoBehaviour
     Vector3 newScale;
     float scaleDeltaTime;
 
-    //Unity Serialized variables
-    [SerializeField] float scaleTime;
-
     private void Awake()
     {
         currentScale = transform.localScale;

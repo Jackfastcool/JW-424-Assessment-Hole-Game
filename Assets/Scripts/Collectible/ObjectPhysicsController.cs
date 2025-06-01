@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ObjectPhysicsController : MonoBehaviour
 {
-    //Script only variables
+    // Unity Serialized variables
+    [SerializeField] float baseInactiveDistance;
+    
+    // Script only variables
     GameObject hole;
     Rigidbody body;
 
@@ -16,15 +19,13 @@ public class ObjectPhysicsController : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(gameObject.transform.position, hole.transform.position) < 30)
+        if (Vector3.Distance(gameObject.transform.position, hole.transform.position) < baseInactiveDistance * transform.localScale.x)
         {
             body.constraints = RigidbodyConstraints.None;
-            print("unfrozen all constraints");
         }
         else
         {
             body.constraints = RigidbodyConstraints.FreezeAll;
-            print("frozen all constraints");
         }
     }
 }

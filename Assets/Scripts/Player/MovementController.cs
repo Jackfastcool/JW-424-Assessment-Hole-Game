@@ -9,24 +9,29 @@ public class MovementController : MonoBehaviour
 
     // Unity serialised Variables
     [SerializeField] float movementSpeed;
+    [SerializeField] float rotationSpeed;
     [SerializeField] Rigidbody rigidbody1;
 
     // Script only variables
     Vector2 moveVal;
-    float moveHor;
-    float moveVert;
-
-    // Update is called once per frame
-    void Update()
-    {
-        rigidbody1.velocity = new Vector3(moveVert * -1, 0, moveHor) * movementSpeed;
-    }
-
+    Vector3 moveHor;
+    Vector3 moveVert;
+    Vector3 finalMove;
+    float rotateValue;
 
     void OnMove(InputValue val)
     {
         moveVal = val.Get<Vector2>();
-        moveHor = moveVal.x;
-        moveVert = moveVal.y;
+        moveHor = moveVal.x * transform.forward * -1;
+        moveVert = moveVal.y * transform.right;
+        finalMove = (moveVert + moveHor) * movementSpeed;
+        rigidbody1.velocity = finalMove;
+    }
+
+    void OnRotate(InputValue val)
+    {
+        rotateValue = val.Get<float>();
+        rigidbody1.angularVelocity = new Vector3(0, rotateValue * rotationSpeed, 0);
+
     }
 }

@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2775137906212303515, guid: a0d1b417196b3b5419f7ea4f737f9205, type: 3}
-  spawnCount: 1000
+  spawnCount: 2000
 --- !u!1001 &405169349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1836,7 +1836,7 @@ Transform:
   m_GameObject: {fileID: 1727724643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15.98, z: 0}
+  m_LocalPosition: {x: 0, y: -6.17, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []

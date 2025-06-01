@@ -22,8 +22,8 @@ public class MovementController : MonoBehaviour
     void OnMove(InputValue val)
     {
         moveVal = val.Get<Vector2>();
-        moveHor = moveVal.x * transform.forward * -1;
-        moveVert = moveVal.y * transform.right;
+        moveHor = moveVal.x * transform.forward;
+        moveVert = moveVal.y * transform.right * -1;
         finalMove = (moveVert + moveHor) * movementSpeed;
         rigidbody1.velocity = finalMove;
     }

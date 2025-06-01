@@ -5,26 +5,22 @@ using UnityEngine;
 
 public class PlayerPointsSystem : MonoBehaviour
 {
-
-    //Script only variables
-
+    // Script only variables
     float playerPoints;
     float playerXP;
     int playerLevel = 1;
     float nextXPTarget;
 
-    //Unity Serialized variables
-
+    // Unity Serialized variables
     [SerializeField] float LevelThreshold;
     [SerializeField] float LevelThresholdAdditive;
 
-    // Start is called before the first frame update
     void Start()
     {
         nextXPTarget = LevelThreshold;
     }
 
-    // Update is called once per frame
+    // Finds and sets the UI to update with the player's level and XP.
     void Update()
     {
         CheckLevel();
@@ -36,7 +32,6 @@ public class PlayerPointsSystem : MonoBehaviour
     {
         playerPoints += points;
         playerXP += points;
-        //print("DEBUG: Detection Stage 3: Points Added:" + points);
     }
 
     void CheckLevel()
@@ -44,10 +39,11 @@ public class PlayerPointsSystem : MonoBehaviour
         if (playerXP >= nextXPTarget)
         {
             PerformLevelUp();
-            //print("DEBUG: Level Up Performed");
         }
     }
 
+    // Adds one to player level, sets the new XP target and resets the player's current XP. Also activates the
+    // smooth scaling script.
     void PerformLevelUp()
     {
         playerLevel += 1;

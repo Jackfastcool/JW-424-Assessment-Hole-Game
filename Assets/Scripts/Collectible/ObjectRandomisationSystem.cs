@@ -12,6 +12,7 @@ public class ObjectRandomisationSysttem : MonoBehaviour
     float randomValueScale;
     Renderer rend;
 
+    // On awake, the cube is assigned a random location, random scale and relative points worth, and a random colour.
     private void Awake()
     {
         randomValuePositionX = Random.Range(-1000f, 1000f);

@@ -15,6 +15,9 @@ public class SmoothScalingSystem : MonoBehaviour
         currentScale = transform.localScale;
     }
 
+    // If start scaling is true, and the scaleDeltaTime is more than 1, it gets reset to zero and StartScaling is set to false.
+    // currentScale is updated to match the previous newScale.
+    // Uses Mathf.Lerp and a Delta Time Counter to scale smoothly the hole to the new level.
     private void Update()
     {
         if (StartScaling)
@@ -33,6 +36,7 @@ public class SmoothScalingSystem : MonoBehaviour
         }
     }
 
+    // Referenced from PlayerPointsSystem, activates the above code and sets newScale.
     public void SmoothAddValueToScale(float value)
     {
         newScale = new Vector3(currentScale.x + value, currentScale.y, currentScale.z + value);

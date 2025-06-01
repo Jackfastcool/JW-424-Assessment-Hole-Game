@@ -25,6 +25,7 @@ public class MovementController : MonoBehaviour
         rigidbody1.velocity = finalMove;
     }
 
+    // Sets the local velocity of the rigidbody, with or without scaling with speed.
     void OnMove(InputValue val)
     {
         if (!speedScalesWithScale)
@@ -43,6 +44,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    // Sets the rotation speed of the rigidbody.
     void OnRotate(InputValue val)
     {
         rotateValue = val.Get<float>();

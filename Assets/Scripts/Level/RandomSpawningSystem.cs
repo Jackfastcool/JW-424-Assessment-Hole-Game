@@ -14,6 +14,7 @@ public class RandomSpawningSystem : MonoBehaviour
         SpawnCubes();
     }
 
+    // Spawns objects until the spawnCount max is reached.
     public void SpawnCubes()
     {
         for (int i = 0; i < spawnCount; i++)

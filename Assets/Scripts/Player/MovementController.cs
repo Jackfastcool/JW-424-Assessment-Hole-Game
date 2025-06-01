@@ -26,6 +26,8 @@ public class MovementController : MonoBehaviour
     }
 
     // Sets the local velocity of the rigidbody, with or without scaling with speed.
+    // Due to the way that this is set up, the local velocity does not update with the rigidbody,
+    // the player must come off the key and press it again to update the direction the RB is facing.
     void OnMove(InputValue val)
     {
         if (!speedScalesWithScale)

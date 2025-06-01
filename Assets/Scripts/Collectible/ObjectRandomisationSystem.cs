@@ -14,8 +14,8 @@ public class ObjectRandomisationSysttem : MonoBehaviour
 
     private void Awake()
     {
-        randomValuePositionX = Random.Range(-100f, 100f);
-        randomValuePositionZ = Random.Range(-100f, 100f);
+        randomValuePositionX = Random.Range(-1000f, 1000f);
+        randomValuePositionZ = Random.Range(-1000f, 1000f);
         randomValueScale = Random.Range(1f, 15f);
 
         gameObject.transform.localScale = new Vector3(randomValueScale, randomValueScale, randomValueScale);

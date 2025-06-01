@@ -10,6 +10,7 @@ public class ObjectRandomisationSysttem : MonoBehaviour
     // Script only variables
     float randomValuePositionX, randomValuePositionZ;
     float randomValueScale;
+    Renderer rend;
 
     private void Awake()
     {
@@ -21,6 +22,9 @@ public class ObjectRandomisationSysttem : MonoBehaviour
         gameObject.transform.position = new Vector3(randomValuePositionX, randomValueScale / 2, randomValuePositionZ);
 
         gameObject.GetComponent<ObjectPointsScript>().SetPointsWorth(randomValueScale * randomValueScale * scaledPointsModifier);
+
+        rend = GetComponent<Renderer>();
+        rend.material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0f, 1f);
     }
 
 }

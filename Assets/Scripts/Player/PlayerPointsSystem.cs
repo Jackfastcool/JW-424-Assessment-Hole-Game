@@ -28,7 +28,7 @@ public class PlayerPointsSystem : MonoBehaviour
     void Update()
     {
         CheckLevel();
-        GameObject.Find("current xp").GetComponent<UITextSystem>().SetValue(playerXP.ToString());
+        GameObject.Find("current xp").GetComponent<UITextSystem>().SetValue(playerLevel.ToString());
         GameObject.Find("xp to level").GetComponent<UITextSystem>().SetValue((nextXPTarget - playerXP).ToString());
     }
         

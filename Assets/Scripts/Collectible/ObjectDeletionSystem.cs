@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ObjectDeletionSystem : MonoBehaviour
 {
-    public void Destroy()
+    public void Destroy(float time)
     {
-        GameObject.Destroy(gameObject);
+        GameObject.Destroy(gameObject, time);
     }
 }

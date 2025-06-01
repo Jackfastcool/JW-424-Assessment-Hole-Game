@@ -7,22 +7,26 @@ using UnityEngine.InputSystem;
 public class MovementController : MonoBehaviour
 {
 
-    // Serialised Variables
+    // Unity serialised Variables
     [SerializeField] float movementSpeed;
-    [SerializeField] bool scalesWithScale;
     [SerializeField] Rigidbody rigidbody1;
+
+    // Script only variables
+    Vector2 moveVal;
+    float moveHor;
+    float moveVert;
 
     // Update is called once per frame
     void Update()
     {
-        rigidbody1.velocity = moveValV3 * movementSpeed;
+        rigidbody1.velocity = new Vector3(moveVert * -1, 0, moveHor) * movementSpeed;
     }
 
-    Vector2 moveVal;
-    Vector3 moveValV3;
+
     void OnMove(InputValue val)
     {
         moveVal = val.Get<Vector2>();
-        moveValV3 = new Vector3(moveVal.y * -1, 0, moveVal.x);
+        moveHor = moveVal.x;
+        moveVert = moveVal.y;
     }
 }
